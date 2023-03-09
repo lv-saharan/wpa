@@ -1,0 +1,57 @@
+{
+  "name": "@lv-saharan/wpa",
+  "version": "1.0.1",
+  "description": "web part application,quick web framework!",
+  "main": "src/wpa.js",
+  "type": "module",
+  "localDev": {
+    "server": {
+      "port": 8990,
+      "root": "./dist"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lv-saharan/wpa.git"
+  },
+  "keywords": [
+    "omi",
+    "binding",
+    "mvvm",
+    "wpa",
+    "route",
+    "webcomponents",
+    "web components",
+    "web component",
+    "micro frontend",
+    "api",
+    "apis",
+    "fast",
+    "esbuild",
+    "data-binding"
+  ],
+  "author": "lv-saharan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lv-saharan/wpa/issues"
+  },
+  "homepage": "https://github.com/lv-saharan/wpa#readme",
+  "devDependencies": {
+    "esbuild": "^0.14.49",
+    "local-dev-server": "^1.0.11"
+  },
+  "scripts": {
+    "dev": "node esbuild.js dev",
+    "build": "node esbuild.js prod"
+  },
+  "dependencies": {
+    "construct-style-sheets-polyfill": "^3.1.0",
+    "dynamic-apis": "^1.0.9",
+    "htm": "^3.1.1",
+    "observing": "^1.0.2",
+    "omi-binding": "^1.0.13",
+    "omi-router": "^3.0.5",
+    "throttle-debounce": "^5.0.0",
+    "weakmap-polyfill": "^2.0.4"
+  }
+}
