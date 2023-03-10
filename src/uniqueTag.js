@@ -2,7 +2,7 @@ import { define } from "./define"
 const classTagMap = new Map()
 const prefixMap = new Map()
 
-let TagPrefix = "oi-part"
+let TagPrefix = "wp-part"
 
 export default function (componentClass, tagPrefix) {
     tagPrefix = tagPrefix ?? TagPrefix
