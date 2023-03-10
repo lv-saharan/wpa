@@ -17,6 +17,7 @@ const options = {
       name: "omi-map",
       setup(build) {
         build.onResolve({ filter: /omi\/src\/extend/ }, (args) => {
+          console.log("omii path", path.resolve("./src/extend.js"));
           return { path: path.resolve("./src/extend.js") };
         });
       },

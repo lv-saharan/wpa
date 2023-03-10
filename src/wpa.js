@@ -83,7 +83,7 @@ export {
   observe,
   unobserve,
 };
-const version = "1.0.2";
+const version = "1.0.3";
 const wpa = (options.root.wpa = {
   ...options.root.omi,
   version,

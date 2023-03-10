@@ -1,6 +1,6 @@
 {
   "name": "wpa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "web part application,quick web framework!",
   "main": "src/wpa.js",
   "type": "module",
