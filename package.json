@@ -1,6 +1,6 @@
 {
   "name": "wpa",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "web part application,quick web framework!",
   "main": "src/wpa.js",
   "type": "module",
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/lv-saharan/wpa#readme",
   "devDependencies": {
-    "esbuild": "^0.14.49",
+    "esbuild": "^0.17.11",
     "local-dev-server": "^1.0.11"
   },
   "scripts": {

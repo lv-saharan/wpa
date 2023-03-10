@@ -26,18 +26,28 @@ const options = {
 
 if (mode == "dev") {
   const { reload } = dev({ ...pkg.localDev.server, openBrowser: false });
-  esbuild.build({
+  const ctx = await esbuild.context({
     ...options,
-    watch: {
-      onRebuild(error, result) {
-        if (error) console.error("watch build failed:", error);
-        else {
-          console.log("watch build succeeded:", result);
-          reload("ui rebuild ok");
-        }
+    plugins: [
+      {
+        name: "watch-plugin",
+        setup(build) {
+          console.log("watch plugin setup");
+          build.onStart(() => {
+            console.log("build starting....");
+          });
+          build.onEnd((result) => {
+            if (result.errors.length == 0) {
+              console.log("build ok");
+            } else {
+              console.log("build error");
+            }
+          });
+        },
       },
-    },
+    ],
   });
+  await ctx.watch();
 } else {
   esbuild.build(options);
 }
