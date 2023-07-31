@@ -1,6 +1,6 @@
 {
   "name": "wpa",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "web part application,quick web framework!",
   "main": "src/wpa.js",
   "type": "module",
@@ -46,10 +46,10 @@
   },
   "dependencies": {
     "construct-style-sheets-polyfill": "^3.1.0",
-    "dynamic-apis": "^1.1.0",
+    "dynamic-apis": "^1.1.1",
     "htm": "^3.1.1",
     "observing": "^1.0.2",
-    "omi-binding": "^1.0.16",
+    "omi-binding": "^1.0.18",
     "omi-router": "^3.0.5",
     "throttle-debounce": "^5.0.0",
     "weakmap-polyfill": "^2.0.4"
