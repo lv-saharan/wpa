@@ -1,4 +1,4 @@
-const version = "1.0.12";
+const version = "1.0.15";
 import {
   tag,
   WeElement,

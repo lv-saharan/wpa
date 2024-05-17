@@ -17,13 +17,13 @@ export let diffLevel = 0;
 // let hydrating = false
 
 /** convert  vnode  function to object */
-const purgeVNode = (vnode, args) => {
+const purgeVNode = async (vnode, args) => {
   if (
     vnode === null ||
     vnode === undefined ||
     (typeof vnode !== "function" && typeof vnode.nodeName !== "function")
   )
-    return vnode;
+    return await vnode;
   const vnodeName = vnode.nodeName;
 
   if (typeof vnodeName === "function") {
@@ -50,9 +50,9 @@ const purgeVNode = (vnode, args) => {
   if (typeof vnodeName === "function") {
     const { children, attributes } = vnode;
     args.children = children;
-    vnode = vnodeName(attributes, args);
+    vnode = await vnodeName(attributes, args);
   } else {
-    vnode = vnode(args);
+    vnode = await vnode(args);
   }
 
   if (vnode instanceof Array) {
@@ -116,7 +116,7 @@ export async function diff(dom, vnode, parent, component, updateSelf) {
   //   hydrating = dom != null && !(ATTR_KEY in dom)
   // }
   //dynamic vnode
-  vnode = purgeVNode(vnode, { component });
+  vnode = await purgeVNode(vnode, { component });
   //////////////////////////////////////////////////////////////////////
 
   if (vnode && vnode.nodeName === Fragment) {
@@ -124,7 +124,10 @@ export async function diff(dom, vnode, parent, component, updateSelf) {
   }
   if (isArray(vnode)) {
     //dynamic vnode
-    vnode = vnode.map((child) => purgeVNode(child, { component }));
+
+    vnode = await Promise.all(
+      vnode.map((child) => purgeVNode(child, { component }))
+    );
     //////////////////////////////////////////////////////////////////////
 
     if (parent) {
@@ -268,7 +271,9 @@ async function idiff(dom, vnode, component, updateSelf, diffContext) {
     vchildren = vnode.children;
 
   //dynamic vnode
-  vchildren = vnode.children.map((child) => purgeVNode(child, { component }));
+  vchildren = await Promise.all(
+    vnode.children.map((child) => purgeVNode(child, { component }))
+  );
   /////////////////////////////////////////////////////////
 
   if (props == null) {
